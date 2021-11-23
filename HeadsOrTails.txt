@@ -1,0 +1,32 @@
+func tossCoin() ->  String {
+    print("Tossing a Coin")
+    let randomToss = Int.random(in: 1...2)
+//    print(randomToss)
+    if(randomToss == 1){
+        print("Heads")
+        return "Heads"
+    }
+    else {
+        print("Tails")
+        return "Tails"
+    }
+}
+
+func tossMultipleCoins(numberOfToss: Int) -> Double {
+    var numberOfHeadToss: Double = 0
+    
+    var i = 1
+    while (i <= numberOfToss){
+        let toss = tossCoin()
+        if(toss == "Heads"){
+            numberOfHeadToss += 1
+        }
+        i += 1
+    }
+    print("Total Number of Head Toss: \(numberOfHeadToss)")
+    return numberOfHeadToss/Double(numberOfToss)
+}
+
+let numberOfToss = Int.random(in: 1...100)
+print("Total Toss: \(numberOfToss)")
+print("The Ratio of Head Toss to Total Toss: \(tossMultipleCoins(numberOfToss: numberOfToss))")
